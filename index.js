@@ -24,6 +24,16 @@ const apiKeyValidation = (req,res,next) =>{
 
 app.use(apiKeyValidation)
 
+app.get("/patients/:id",async (req, res)=>{ 
+  
+  coneccion()
+  const usuario = await clinicas.findById({ _id: req.params.id });
+  console.log(usuario)
+  res.status(200).send(usuario)
+  return JSON.parse(JSON.stringify(usuario))
+  //res.json(usuario);
+});
+
 app.get("/patients",async (req, res)=>{ 
   
         coneccion()
