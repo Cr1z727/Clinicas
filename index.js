@@ -39,7 +39,7 @@ const apiKeyValidation = (req,res,next) =>{
     
 };
 
-app.use(apiKeyValidation)
+// app.use(apiKeyValidation)
 
 /**
  * @swagger
