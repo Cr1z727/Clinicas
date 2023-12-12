@@ -27,19 +27,19 @@ async function coneccion (){await mongoose.connect('mongodb+srv://CristianCamarg
  */
 require('dotenv').config()
 
-// const API_KEY = process.env.API_KEY
-// const apiKeyValidation = (req,res,next) =>{
-//     const userApiKey=req.get('x-api-key');
-//     if (userApiKey && userApiKey === API_KEY){
-//         next();
-//     } 
-//     else{
-//         res.status(401).send('Invalid Api Key')
-//     }
+const API_KEY = process.env.API_KEY
+ const apiKeyValidation = (req,res,next) =>{
+     const userApiKey=req.get('x-api-key');
+   if (userApiKey && userApiKey === API_KEY){
+        next();
+     } 
+     else{
+        res.status(401).send('Invalid Api Key')
+    }
     
-// };
+ };
 
-// app.use(apiKeyValidation)
+app.use(apiKeyValidation)
 
 /**
  * @swagger
