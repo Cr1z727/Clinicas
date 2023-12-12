@@ -30,6 +30,8 @@ require('dotenv').config()
 const API_KEY = process.env.API_KEY
  const apiKeyValidation = (req,res,next) =>{
      const userApiKey=req.get('x-api-key');
+     console.log(API_KEY,"este es el api")
+     console.log(userApiKey,"este es el x-api")
    if (userApiKey && userApiKey === API_KEY){
         next();
      } 
