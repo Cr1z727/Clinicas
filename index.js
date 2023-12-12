@@ -6,13 +6,19 @@ const app = express();
 const port = 3000;
 app.use(express.json())
 
+
+require('dotenv').config()
+
+const MONGO_URI = process.env.MONGO_URI
+
 /**
  * @swagger
  * tags:
  *   name: Conección
  *   description: Operaciones relacionadas con la conexión a la base de datos.
  */
-async function coneccion (){await mongoose.connect('mongodb+srv://CristianCamargo:Cristian227700@cluster0.ssvjvjq.mongodb.net/tablas?retryWrites=true&w=majority');console.log("esta conectado")}
+async function coneccion() { 
+  await mongoose.connect(`${MONGO_URI}`); console.log("esta conectado") }
 /**
  * @swagger
  * components:
@@ -25,7 +31,6 @@ async function coneccion (){await mongoose.connect('mongodb+srv://CristianCamarg
  * security:
  *   - ApiKeyAuth: []
  */
-require('dotenv').config()
 
 const API_KEY = process.env.API_KEY
 const apiKeyValidation = (req,res,next) =>{
