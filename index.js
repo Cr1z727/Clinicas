@@ -63,13 +63,12 @@ require('dotenv').config()
  *             example:
  *               _id: "5f4e8bb97e3e414772e30106"
  *               name: "Nombre del Paciente"
- *               // Otros campos del paciente
+ *               # Otros campos del paciente
  *       404:
  *         description: No se encontró ningún paciente con el ID proporcionado.
  *       500:
  *         description: Error interno del servidor.
  */
-
 app.get("/patients/:id",async (req, res)=>{ 
   
   coneccion()
@@ -93,11 +92,11 @@ app.get("/patients/:id",async (req, res)=>{
  *             example:
  *               - _id: "5f4e8bb97e3e414772e30106"
  *                 name: "Nombre del Paciente 1"
- *                 // Otros campos del paciente 1
+ *                 # Otros campos del paciente 1
  *               - _id: "5f4e8bb97e3e414772e30107"
  *                 name: "Nombre del Paciente 2"
- *                 // Otros campos del paciente 2
- *               // Otros pacientes en la lista
+ *                 # Otros campos del paciente 2
+ *               # Otros pacientes en la lista
  *       500:
  *         description: Error interno del servidor.
  */
@@ -116,13 +115,14 @@ app.get("/patients",async (req, res)=>{
  * /patients:
  *   post:
  *     summary: Agrega un nuevo paciente a la base de datos.
+ *     description: Utiliza este endpoint para subir nuevos datos y alimentar la base de datos.
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           example:
- *             - name: "Nuevo Paciente"
- *               // Otros campos del nuevo paciente
+ *             name: "Nuevo Paciente"
+ *             # Otros campos del nuevo paciente
  *     responses:
  *       201:
  *         description: Paciente agregado con éxito.
@@ -131,11 +131,10 @@ app.get("/patients",async (req, res)=>{
  *             example:
  *               _id: "5f4e8bb97e3e414772e30108"
  *               name: "Nuevo Paciente"
- *               // Otros campos del nuevo paciente
+ *               # Otros campos del nuevo paciente
  *       500:
  *         description: Error interno del servidor.
  */
-
 app.post('/patients', async (req, res) => {
   coneccion()
   try {

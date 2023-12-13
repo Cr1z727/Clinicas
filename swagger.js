@@ -8,7 +8,7 @@ const options = {
         openapi: "3.0.0",
         info:{
             title: "Api para historia clinica",
-            version: "1.0.0",
+            version: "1.1.0",
         }
     },
     apis:[
@@ -21,7 +21,7 @@ const options = {
 const swaggerSpec = swaggerJSDOC(options);
 
 const swaggerDocs = (app,port)=>{
-    app.use('/doc-ap-v1',swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+    app.use('/doc',swaggerUi.serve, swaggerUi.setup(swaggerSpec))
     
 }
 
